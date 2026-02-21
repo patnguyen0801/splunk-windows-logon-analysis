@@ -20,6 +20,5 @@ Analyze Windows Security logs in Splunk to identify logon activity and privilege
 
 ```spl
 index=main sourcetype=wineventlog LogName=Security 
-(EventCode=4624 OR EventCode=4672 OR EventCode=4634 OR EventCode=4648)
 | stats count by EventCode
 | sort -count
