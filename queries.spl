@@ -1,0 +1,7 @@
+index=main sourcetype=wineventlog LogName=Security 
+(EventCode=4624 OR EventCode=4672 OR EventCode=4634 OR EventCode=4648)
+| stats count by EventCode
+| sort -count
+
+index=main sourcetype=wineventlog LogName=Security EventCode=4672
+| table _time host UserName EventCode
